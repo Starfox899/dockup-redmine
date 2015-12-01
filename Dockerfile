@@ -26,3 +26,4 @@ ENV BACKUP_NAME backup-redmine
 ENV RESTORE false
 
 CMD ["/run.sh"]
+#CMD ["/bin/bash"]

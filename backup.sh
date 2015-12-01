@@ -29,7 +29,7 @@ readonly pgdump=$BACKUP_NAME-postgres-$BACKUP_SUFFIX.sqlc
 echo "--- Creating backup of redmine files ---"
 
 # Create a gzip compressed tarball with the volume(s)
-tar czf $tarball $BACKUP_TAR_OPTION $REDMINE_FILES
+tar cpvfz $tarball $REDMINE_FILES/files
 
 #
 # Redmine postgres backup
@@ -47,7 +47,8 @@ chmod 600 ~/.pgpass
   -d $POSTGRES_ENV_DB_NAME \
   -U $POSTGRES_ENV_DB_USER \
   -Fc \
-  --file=$pgdump
+  --verbose \
+  --file=$pgdump 
 rm -rf ~/.pgpass
 
 #
